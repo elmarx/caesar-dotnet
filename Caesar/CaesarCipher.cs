@@ -47,5 +47,10 @@ namespace Caesar
         {
             throw new NotImplementedException();
         }
+
+        public static int CharToRingElement(char c)
+        {
+            return Convert.ToInt32(Char.ToLower(c)) - 97;
+        }
     }
 }

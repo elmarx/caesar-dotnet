@@ -39,7 +39,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="CaesarInstance.cs" />
+    <Compile Include="CaesarCipher.cs" />
     <Compile Include="ModuloArithmetic.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
