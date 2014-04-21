@@ -44,6 +44,7 @@
   <ItemGroup>
     <Compile Include="ModuloArithmetic.fs" />
     <None Include="Script.fsx" />
+    <Compile Include="CaesarCipher.fs" />
   </ItemGroup>
   <PropertyGroup>
     <MinimumVisualStudioVersion Condition="'$(MinimumVisualStudioVersion)' == ''">11</MinimumVisualStudioVersion>

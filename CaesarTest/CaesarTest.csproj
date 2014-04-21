@@ -50,6 +50,7 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
+    <Compile Include="FCaesarCipherTest.cs" />
     <Compile Include="FModuloArithmeticTest.cs" />
     <Compile Include="ModuloArithmeticTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
