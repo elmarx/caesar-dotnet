@@ -29,7 +29,7 @@ namespace Caesar
 
             var r = Egcd(26, x);
             if (r.Item1 > 1) throw new ArgumentException(string.Format("{0} has no inverse in {1} (gcd({0}, {1}) = {2})", x, mod, r.Item1));
-            return Egcd(26, x).Item3;
+            return r.Item3;
         }
 
         public static Tuple<int, int, int> Egcd(int a, int b) 
