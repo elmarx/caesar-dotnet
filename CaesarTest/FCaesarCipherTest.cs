@@ -8,22 +8,6 @@ namespace CaesarTest
     public class FCaesarChiperTest
     {
         [TestMethod]
-        public void CharToRingElement()
-        {
-            Assert.AreEqual(CaesarCipher.CharToRingElement('a'), 0);
-            Assert.AreEqual(CaesarCipher.CharToRingElement('A'), 0);
-            Assert.AreEqual(CaesarCipher.CharToRingElement('z'), 25);
-            Assert.AreEqual(CaesarCipher.CharToRingElement('e'), 4);
-        }
-
-        public void RingElementToChar()
-        {
-            Assert.AreEqual(CaesarCipher.RingElementToChar(0), 'a');
-            Assert.AreEqual(CaesarCipher.RingElementToChar(25), 'z');
-            Assert.AreEqual(CaesarCipher.RingElementToChar(4), 'e');
-        }
-
-        [TestMethod]
         public void Crack()
         {
             var crackedSystem = new CaesarCipher("CKDCSQDLQJEWJGFQIBQIIQDUQJJQJCQJJCKDQIJKGFNAWDRSAQJWSQDUQJJQJCOZZNQJ");
