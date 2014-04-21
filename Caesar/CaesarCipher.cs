@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Caesar
 {
-    public class CaesarSystem
+    public class CaesarCipher
     {
         public int A { get; private set; }
         
@@ -15,17 +15,17 @@ namespace Caesar
         static readonly Dictionary<char, int> Letters = Enumerable.Range(0, 26).ToDictionary(i => Convert.ToChar(i + 97));
         static readonly char[] StatisticalFrequency = { 'e', 'n' };
 
-        public CaesarSystem(int a, int b) 
+        public CaesarCipher(int a, int b) 
         {
             this.A = a;
             this.B = b;
         }
 
-        public static CaesarSystem Crack(string c)
+        public static CaesarCipher Crack(string c)
         {
             var frequency = c.ToCharArray().GroupBy(x => x).OrderByDescending(x => x.Count()).Select(x => x.Key);
 
-            return new CaesarSystem(1, 1);
+            return new CaesarCipher(1, 1);
         }
 
         public char Decrypt(char c)

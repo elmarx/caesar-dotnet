@@ -11,7 +11,7 @@ namespace CaesarConsoleRunner
     {
         static void Main(string[] args)
         {
-            var system = CaesarSystem.Crack("CKDCSQDLQJEWJGFQIBQIIQDUQJJQJCQJJCKDQIJKGFNAWDRSAQJWSQDUQJJQJCOZZNQJ");
+            var system = CaesarCipher.Crack("CKDCSQDLQJEWJGFQIBQIIQDUQJJQJCQJJCKDQIJKGFNAWDRSAQJWSQDUQJJQJCOZZNQJ");
             Console.WriteLine(system.A);
             Console.ReadLine();
         }
