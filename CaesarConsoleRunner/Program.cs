@@ -11,8 +11,8 @@ namespace CaesarConsoleRunner
     {
         static void Main(string[] args)
         {
-            var system = CaesarSystem.crack("CKDCSQDLQJEWJGFQIBQIIQDUQJJQJCQJJCKDQIJKGFNAWDRSAQJWSQDUQJJQJCOZZNQJ");
-            Console.WriteLine(system.a);
+            var system = CaesarSystem.Crack("CKDCSQDLQJEWJGFQIBQIIQDUQJJQJCQJJCKDQIJKGFNAWDRSAQJWSQDUQJJQJCOZZNQJ");
+            Console.WriteLine(system.A);
             Console.ReadLine();
         }
     }

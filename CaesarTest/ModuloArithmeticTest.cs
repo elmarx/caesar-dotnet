@@ -9,32 +9,30 @@ namespace CaesarTest
     {
         ModuloArithmetic subject;
         
-
         [TestInitialize]
         public void SetUp()
         {
             subject = new ModuloArithmetic(26);
-
         }
 
         [TestMethod]
-        public void egcd()
+        public void Egcd()
         {
-            Assert.AreEqual(Tuple.Create(1, 1, -2), ModuloArithmetic.egcd(27, 13));
-            Assert.AreEqual(Tuple.Create(1, 11, -6), ModuloArithmetic.egcd(23, 42));
+            Assert.AreEqual(Tuple.Create(1, 1, -2), ModuloArithmetic.Egcd(27, 13));
+            Assert.AreEqual(Tuple.Create(1, 11, -6), ModuloArithmetic.Egcd(23, 42));
         }
 
         [TestMethod]
-        public void inverse()
+        public void Inverse()
         {
-            Assert.AreEqual(subject.inverse(9), 3);
+            Assert.AreEqual(subject.Inverse(9), 3);
         }
 
         [ExpectedException(typeof(ArgumentException))]
         [TestMethod]
-        public void noInverse()
+        public void NoInverse()
         {
-            subject.inverse(91);
+            subject.Inverse(91);
         }
     }
 }
