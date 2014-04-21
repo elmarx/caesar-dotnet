@@ -8,18 +8,19 @@ namespace CaesarTest
     public class CaesarChiperTest
     {
         [TestMethod]
-        public void CharToRingElement()
+        public void ToRingElementExtensionMethod()
         {
-            Assert.AreEqual(CaesarCipher.CharToRingElement('a'), 0);
-            Assert.AreEqual(CaesarCipher.CharToRingElement('z'), 25);
-            Assert.AreEqual(CaesarCipher.CharToRingElement('e'), 4);
+            Assert.AreEqual('a'.ToRingElement(), 0);
+            Assert.AreEqual('z'.ToRingElement(), 25);
+            Assert.AreEqual('e'.ToRingElement(), 4);
         }
 
-        public void RingElementToChar()
+        [TestMethod]
+        public void ToCharInRingExtensionMethod()
         {
-            Assert.AreEqual(CaesarCipher.RingElementToChar(0), 'a');
-            Assert.AreEqual(CaesarCipher.RingElementToChar(25), 'z');
-            Assert.AreEqual(CaesarCipher.RingElementToChar(4), 'e');
+            Assert.AreEqual(0.ToCharInRing(), 'a');
+            Assert.AreEqual(25.ToCharInRing(), 'z');
+            Assert.AreEqual(4.ToCharInRing(), 'e');
         }
 
         [TestMethod]

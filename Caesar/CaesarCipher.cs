@@ -24,11 +24,11 @@ namespace Caesar
         {
             var frequency = cipherText.ToCharArray().GroupBy(x => x).OrderByDescending(x => x.Count()).Select(x => x.Key).ToArray();
 
-            var c1 = CharToRingElement(frequency[0]);
-            var m1 = CharToRingElement('e');
+            var c1 = frequency[0].ToRingElement();
+            var m1 = 'e'.ToRingElement();
 
-            var c2 = CharToRingElement(frequency[1]);
-            var m2 = CharToRingElement('n');
+            var c2 = frequency[1].ToRingElement();
+            var m2 = 'n'.ToRingElement();
 
             var a = ring.Congruent(c1 - c2) * ring.Inverse(m1 - m2);
             var b = c1 - m1 * a;
@@ -39,23 +39,17 @@ namespace Caesar
 
         public char Decrypt(char c)
         {
-            return RingElementToChar(Decrypt(CharToRingElement(c)));
+            return Decrypt(c.ToRingElement()).ToCharInRing();
         }
 
         public int Decrypt(int c)
         {
-            return ring.Congruent(
-                (c - B) * ring.Inverse(A)
-                );
+            return ring.Congruent((c - B) * ring.Inverse(A));
         }
 
         public char Encrypt(char m)
         {
-            return RingElementToChar(
-                Encrypt(
-                    CharToRingElement(m)
-                )
-            );
+            return Encrypt(m.ToRingElement()).ToCharInRing();
         }
 
         public int Encrypt(int m)
@@ -71,16 +65,6 @@ namespace Caesar
         public string Encrypt(string m)
         {
             return new String(m.ToCharArray().Select(x => Encrypt(x)).ToArray());
-        }
-
-        public static int CharToRingElement(char c)
-        {
-            return Convert.ToInt32(Char.ToLower(c)) - 97;
-        }
-
-        public static char RingElementToChar(int e)
-        {
-            return Convert.ToChar(e + 97);
         }
     }
 }
