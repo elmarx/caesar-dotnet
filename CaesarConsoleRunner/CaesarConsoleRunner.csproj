@@ -48,6 +48,10 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Caesar.F\Caesar.F.fsproj">
+      <Project>{c2b4e7f0-30cf-4469-a80f-c118be4442a9}</Project>
+      <Name>Caesar.F</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Caesar\Caesar.csproj">
       <Project>{5211c998-518b-46d4-adfc-c169a8dcae20}</Project>
       <Name>Caesar</Name>
