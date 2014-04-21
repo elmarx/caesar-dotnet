@@ -12,8 +12,7 @@ namespace Caesar
         
         public int B { get; private set; }
 
-        static readonly Dictionary<char, int> Letters = Enumerable.Range(0, 26).ToDictionary(i => Convert.ToChar(i + 97));
-        static readonly char[] StatisticalFrequency = { 'e', 'n' };
+        private static readonly ModuloArithmetic ring = new ModuloArithmetic(26);
 
         public CaesarCipher(int a, int b) 
         {
@@ -24,8 +23,6 @@ namespace Caesar
         public static CaesarCipher Crack(string c)
         {
             var frequency = c.ToCharArray().GroupBy(x => x).OrderByDescending(x => x.Count()).Select(x => x.Key).ToArray();
-
-            var ring = new ModuloArithmetic(26);
 
             var c1 = CharToRingElement(frequency[0]);
             var m1 = CharToRingElement('e');
@@ -41,27 +38,48 @@ namespace Caesar
 
         public char Decrypt(char c)
         {
-            throw new NotImplementedException();
+            return RingElementToChar(Decrypt(CharToRingElement(c)));
+        }
+
+        public int Decrypt(int c)
+        {
+            return ring.Congruent(
+                (c - B) * ring.Inverse(A)
+                );
         }
 
         public char Encrypt(char m)
         {
-            throw new NotImplementedException();
+            return RingElementToChar(
+                Encrypt(
+                    CharToRingElement(m)
+                )
+            );
+        }
+
+        public int Encrypt(int m)
+        {
+            return ring.Congruent(A * m + B);
         }
 
         public string Decrypt(string c)
         {
-            throw new NotImplementedException();
+            return new String(c.ToCharArray().Select(x => Decrypt(x)).ToArray());
         }
 
         public string Encrypt(string m)
         {
-            throw new NotImplementedException();
+            return new String(m.ToCharArray().Select(x => Encrypt(x)).ToArray());
         }
 
         public static int CharToRingElement(char c)
         {
             return Convert.ToInt32(Char.ToLower(c)) - 97;
+        }
+
+        public static char RingElementToChar(int e)
+        {
+            return Convert.ToChar(e + 97);
         }
     }
 }
