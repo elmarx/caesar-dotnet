@@ -34,5 +34,12 @@ namespace CaesarTest
         {
             subject.Inverse(91);
         }
+
+        [TestMethod]
+        public void Congruent()
+        {
+            Assert.AreEqual(6, subject.Congruent(-20));
+            Assert.AreEqual(6, subject.Congruent(32));
+        }
     }
 }

@@ -18,6 +18,11 @@ namespace Caesar
             this.mod = mod;
         }
 
+        public int Congruent(int v)
+        {
+            return (v >= 0) ? v % mod : Congruent(v + mod);
+        }
+
         public int Inverse(int x) 
         {
             var r = Egcd(26, x);
