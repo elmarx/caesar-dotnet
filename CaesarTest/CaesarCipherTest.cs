@@ -25,7 +25,7 @@ namespace CaesarTest
         [TestMethod]
         public void Crack()
         {
-            var crackedSystem = CaesarCipher.Crack("CKDCSQDLQJEWJGFQIBQIIQDUQJJQJCQJJCKDQIJKGFNAWDRSAQJWSQDUQJJQJCOZZNQJ");
+            var crackedSystem = new CaesarCipher("CKDCSQDLQJEWJGFQIBQIIQDUQJJQJCQJJCKDQIJKGFNAWDRSAQJWSQDUQJJQJCOZZNQJ");
             Assert.AreEqual(5, crackedSystem.A);
             Assert.AreEqual(22, crackedSystem.B);
         }

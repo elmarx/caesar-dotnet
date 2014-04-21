@@ -12,7 +12,7 @@ namespace CaesarConsoleRunner
         static void Main(string[] args)
         {
             var cipherText = "CKDCSQDLQJEWJGFQIBQIIQDUQJJQJCQJJCKDQIJKGFNAWDRSAQJWSQDUQJJQJCOZZNQJ";
-            var system = CaesarCipher.Crack(cipherText);
+            var system = new CaesarCipher(cipherText);
             Console.WriteLine("A: {0}, B: {1}", system.A, system.B);
             Console.WriteLine(system.Decrypt(cipherText));
             Console.ReadLine();
