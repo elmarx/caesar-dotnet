@@ -11,6 +11,7 @@ namespace CaesarTest
         public void CharToRingElement()
         {
             Assert.AreEqual(CaesarCipher.CharToRingElement('a'), 0);
+            Assert.AreEqual(CaesarCipher.CharToRingElement('A'), 0);
             Assert.AreEqual(CaesarCipher.CharToRingElement('z'), 25);
             Assert.AreEqual(CaesarCipher.CharToRingElement('e'), 4);
         }
