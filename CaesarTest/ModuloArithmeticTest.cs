@@ -40,6 +40,7 @@ namespace CaesarTest
         {
             Assert.AreEqual(6, subject.Congruent(-20));
             Assert.AreEqual(6, subject.Congruent(32));
+            Assert.AreEqual(25, subject.Congruent(-261));
         }
     }
 }

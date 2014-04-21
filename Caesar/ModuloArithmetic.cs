@@ -25,6 +25,8 @@ namespace Caesar
 
         public int Inverse(int x) 
         {
+            if (x < 0) return this.Inverse(this.Congruent(x));
+
             var r = Egcd(26, x);
             if (r.Item1 > 1) throw new ArgumentException(string.Format("{0} has no inverse in {1} (gcd({0}, {1}) = {2}", x, mod, r.Item1));
             return Egcd(26, x).Item3;

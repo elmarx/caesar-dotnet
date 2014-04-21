@@ -23,9 +23,20 @@ namespace Caesar
 
         public static CaesarCipher Crack(string c)
         {
-            var frequency = c.ToCharArray().GroupBy(x => x).OrderByDescending(x => x.Count()).Select(x => x.Key);
+            var frequency = c.ToCharArray().GroupBy(x => x).OrderByDescending(x => x.Count()).Select(x => x.Key).ToArray();
 
-            return new CaesarCipher(1, 1);
+            var ring = new ModuloArithmetic(26);
+
+            var c1 = CharToRingElement(frequency[0]);
+            var m1 = CharToRingElement('e');
+
+            var c2 = CharToRingElement(frequency[1]);
+            var m2 = CharToRingElement('n');
+
+            var a = ring.Congruent(c1 - c2) * ring.Inverse(m1 - m2);
+            var b = c1 - m1 * a;
+
+            return new CaesarCipher(ring.Congruent(a), ring.Congruent(b));
         }
 
         public char Decrypt(char c)
